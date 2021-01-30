@@ -16,9 +16,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  List<Transaction> _transactions = [
-    Transaction(id: "t1", title: "Test", amount: 22.3, date: DateTime.now().subtract(Duration(days: 4)))
-  ];
+  List<Transaction> _transactions = [];
 
   List<Transaction> get _recentTransactions {
     return _transactions
@@ -30,13 +28,19 @@ class _MyAppState extends State<MyApp> {
         .toList();
   }
 
-  void _addTransaction(String title, double amount) {
+  void _addTransaction(String title, double amount, DateTime date) {
     setState(() {
       _transactions.add(Transaction(
           id: DateTime.now().toString(),
           title: title,
           amount: amount,
-          date: DateTime.now()));
+          date: date));
+    });
+  }
+
+  void _removeTransaction(int index) {
+    setState(() {
+      _transactions.removeAt(index);
     });
   }
 
@@ -77,7 +81,10 @@ class _MyAppState extends State<MyApp> {
                   width: double.infinity,
                   child: Chart(_recentTransactions),
                 ),
-                TransactionsList(transactions: _transactions)
+                TransactionsList(
+                  transactions: _transactions,
+                  removeTransaction: _removeTransaction,
+                )
               ],
             ),
           ),
