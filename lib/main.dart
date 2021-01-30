@@ -63,6 +63,7 @@ class _MyAppState extends State<MyApp> {
           textTheme: ThemeData.light().textTheme.copyWith(
               headline6: TextStyle(fontSize: 18, color: Colors.blueGrey[800]))),
       home: Scaffold(
+        backgroundColor: Color.fromRGBO(247, 250, 252, 1),
         appBar: AppBar(
           title: Text("Expense Planner"),
           actions: [
