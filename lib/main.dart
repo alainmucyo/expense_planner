@@ -55,13 +55,14 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Expense Planner',
       theme: ThemeData(
           primarySwatch: Colors.purple,
-          accentColor: Colors.purpleAccent,
+          accentColor: Colors.amber,
           visualDensity: VisualDensity.adaptivePlatformDensity,
           textTheme: ThemeData.light().textTheme.copyWith(
-              headline6: TextStyle(fontSize: 18, color: Colors.blueGrey[800]))),
+                headline6: TextStyle(fontSize: 18, color: Colors.blueGrey[800]),
+              )),
       home: Scaffold(
         backgroundColor: Color.fromRGBO(247, 250, 252, 1),
         appBar: AppBar(
